@@ -14,6 +14,18 @@ use Julfiker\CommissionCalculator;
 class CommissionCalculatorTest extends TestCase
 {
     /**
+     * @throws \Exception
+     */
+    public function testSetDataProperly() {
+        $data = '{"bin":"41417360","amount":"130.00","currency":"USD"}';
+
+        $client = new Client();
+        $calculator = new CommissionCalculator($client);
+        $calculator->setData($data);
+        $this->assertEquals(json_decode($data), $calculator->getData());
+    }
+
+    /**
      * EUR calculation
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
@@ -28,8 +40,8 @@ class CommissionCalculatorTest extends TestCase
             ->calculate();
 
         $this->assertEquals(
-           1,
-           $amount
+            1,
+            $amount
         );
     }
 
@@ -52,17 +64,5 @@ class CommissionCalculatorTest extends TestCase
             2.28,
             $amount
         );
-    }
-
-    /**
-     * @throws \Exception
-     */
-    public function testSetDataProperly() {
-        $data = '{"bin":"41417360","amount":"130.00","currency":"USD"}';
-
-        $client = new Client();
-        $calculator = new CommissionCalculator($client);
-        $calculator->setData($data);
-        $this->assertEquals(json_decode($data), $calculator->getData());
     }
 }
