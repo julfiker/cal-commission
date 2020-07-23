@@ -1,14 +1,11 @@
 <?php
-
-
-namespace Julfiker;
+namespace Julfiker\Configs;
 
 /**
- * Class CountryEnum
- *
- * @package Julfiker
+ * Class Config
+ * @package Julfiker\Configs
  */
-abstract class CountryEnum
+abstract class Config
 {
     /**
      * Constant for Eu countries
@@ -43,14 +40,13 @@ abstract class CountryEnum
         'SK',
     ];
 
-    /**
-     * Check country is EU or bot
-     *
-     * @param $country
-     * @return bool
-     */
-    public static function isEu($country) : bool {
-        return in_array($country,self::EU);
-    }
+    const BIN_API = 'https://lookup.binlist.net';
 
+    const EXCHANGE_RATE_API = 'https://api.exchangeratesapi.io/latest';
+
+    const EU_RATE = 0.01;
+
+    const NON_EU_RATE = 0.02;
+
+    const ROUND_DECIMAL_DIGIT = 2;
 }
