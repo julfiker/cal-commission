@@ -10,7 +10,12 @@ use Julfiker\Managers\BinManager;
 use Julfiker\Managers\CalculatorManager;
 use Julfiker\Managers\ExchangeRateManager;
 
-
+/**
+ * A singleton class for application bootstrap
+ *
+ * Class Application
+ * @package Julfiker
+ */
 class Application
 {
 
