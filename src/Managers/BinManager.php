@@ -25,6 +25,7 @@ class BinManager
     }
 
     /**
+     * @param $bin
      * @return \stdClass
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
